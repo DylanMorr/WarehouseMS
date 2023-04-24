@@ -96,7 +96,6 @@
 
 <script>
 import Sidebar from '@/components/Sidebar'
-import testdata from "./testorders"
 import $ from 'jquery'
 
 export default {

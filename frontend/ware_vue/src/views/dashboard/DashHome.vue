@@ -15,9 +15,9 @@
 							<table class="table table-bordered table-condensed" style="background-color: #B5EBE7; border: 1px solid black;">
                 <tbody>
                   <tr>
-                    <td id="table-data">Item ID: item_id</td>
-										<td id="table-data">Location: location</td>
-										<td id="table-data">Stock: stock</td>
+                    <td id="table-data">Item ID: 123</td>
+										<td id="table-data">Location: A-34</td>
+										<td id="table-data">Stock: 50</td>
                   </tr>
                 </tbody>
               </table>
@@ -31,8 +31,8 @@
 							<table class="table table-bordered table-condensed" style="background-color: #B5EBE7; border: 1px solid black;">
                 <tbody>
                   <tr>
-                    <td id="table-data">Order ID: order_id</td>
-										<td id="table-data">Shipping By: due_date</td>
+                    <td id="table-data">Order ID: 123</td>
+										<td id="table-data">Shipping By: 30/04/2023</td>
                   </tr>
                 </tbody>
               </table>

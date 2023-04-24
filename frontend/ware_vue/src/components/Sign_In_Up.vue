@@ -1,55 +1,72 @@
 <template>
   <div class="container log-con" id="container-test">
     <div class="form-container sign-up-container">
+      <!-- Register Form -->
       <form class="log-form" v-on:submit.prevent="submitFormRegister">
         <h1 class="log-title">Create Account</h1>
 
+        <!-- Email input field -->
         <input class="log-input" type="email" v-model="username" placeholder="Email" />
 
+        <!-- password input field -->
         <input class="log-input" type="password" v-model="password" placeholder="Password" />
 
+        <!-- repeat password input field -->
         <input class="log-input" type="password" v-model="repeat_pass" placeholder="Repeat Password" />
 
+        <!-- div to print out errors in -->
         <div class="text-danger" v-if="errors.length">
           <p v-for="error in errors" v-bind:key="error">
             {{ error }}
           </p>
         </div>
 
+        <!-- submit button -->
         <button id="log-btns" style="margin-top: 30px;">Sign Up</button>
       </form>
     </div>
 
     <div class="form-container sign-in-container">
+      <!-- Login Form -->
       <form class="log-form" v-on:submit.prevent="submitFormLogin">
         <h1 class="log-title">Sign in</h1>
 
+        <!-- input field for email -->
         <input class="log-input" type="email" v-model="username" placeholder="Email" />
 
+        <!-- input field for password -->
         <input class="log-input" type="password" v-model="password" placeholder="Password" />
 
+        <!-- div to print out errors in -->
         <div class="text-danger" v-if="errors.length">
           <p v-for="error in errors" v-bind:key="error">
             {{ error }}
           </p>
         </div>
 
+        <!-- forget password button -->
         <a class="for-pass" href="#">Forgot your password?</a>
 
+        <!-- submit button and login -->
         <button id="log-btns" style="margin-top: 10px;">Sign In</button>
       </form>
     </div>
 
+    <!-- Create the overlay that moves over and back the screen -->
     <div class="overlay-container">
       <div class="overlay">
+        <!-- when the panel is on the left you are in the sign up page -->
         <div class="overlay-panel overlay-left">
           <h1 class="log-title">Welcome Back!</h1>
           <p class="over-msg">To get back to managing login and get started</p>
+          <!-- Slide back into login screen -->
           <button id="log-btns" class="ghost" @click="showSignInPanel">Sign In</button>
         </div>
+        <!-- when the panel is on the right you are in the sign in page -->
         <div class="overlay-panel overlay-right">
           <h1 class="log-title">Hi, there!</h1>
           <p class="over-msg">Enter your details and start managing today</p>
+          <!-- Slide back into sign up screen -->
           <button id="log-btns" class="ghost" @click="showSignUpPanel">Sign Up</button>
         </div>
       </div>
@@ -162,12 +179,12 @@ export default {
         axios
           .post('/api/users/', formData)
           .then(response => {
-            this.$router.push('/log-in')
+            this.showSignInPanel();
           })
           .catch(error => {
             if (error.response) {
               for (const property in error.response.data) {
-                this.errors.push(`${property}: ${error.response.data[property]}`)
+                this.errors.push(`${error.response.data[property]}`)
               }
 
               console.log(JSON.stringify(error.response.data))

@@ -18,8 +18,6 @@
         </template>
 
         <template v-else>
-          <!-- <router-link to="/log-in" class="button">Login</router-link>
-          <router-link to="/sign-up" class="button">Sign Up</router-link> -->
           <router-link to="/login-sign-up" class="button">Login / Sign Up</router-link>
         </template>
       </div>

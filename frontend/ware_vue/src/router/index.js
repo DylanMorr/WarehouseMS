@@ -10,8 +10,6 @@ import DashShipping from '../views/dashboard/DashShipping.vue'
 import DashStocklist from '../views/dashboard/DashStocklist.vue'
 import DashWarehouse from '../views/dashboard/DashWarehouse.vue'
 
-import Login from '../views/Login.vue'
-
 const routes = [
   {
     path: '/',
@@ -85,12 +83,6 @@ const routes = [
     meta: {
       requireLogin: true
     }
-  },
-
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   }
 ]
 

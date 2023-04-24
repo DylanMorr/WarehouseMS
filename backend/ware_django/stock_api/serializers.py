@@ -19,7 +19,7 @@ class SectorSerializer(serializers.ModelSerializer):
 class ShelfSerializer(serializers.ModelSerializer):
     class Meta:
         model=Shelf
-        fields=('Shelf_ID', 'Shelf_Num', 'Shelf_Capacity')
+        fields=('Shelf_ID', 'Shelf_Sector', 'Shelf_Num', 'Shelf_Capacity')
 
 class MapSerializer(serializers.ModelSerializer):
     class Meta:

@@ -81,6 +81,42 @@
               <span class="input-group-text">Name</span>
               <input type="text" class="form-control" v-model="Sector_Name">
             </div>
+
+            <div class="row input-group">
+              Sector Capacity: 0/3000
+              <div class="progress" style="margin-bottom: 20px; padding: 0;">
+                <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div style="text-decoration: underline; font-weight: bold;">
+              Sector Shelves
+            </div>
+            
+            <table class="table table-bordered table-condensed"
+              style="background-color: #B5EBE7; border: 1px solid black;">
+              <tbody>
+                <tr>
+                  <td id="table-data" style="font-weight: 600; padding-top: 15px;">Shelf A-1</td>
+                  <td id="table-data">
+                    <button class="act-btn"><span class="material-icons mat-icon">info</span></button>
+                    <button class="act-btn"><span class="material-icons mat-icon">edit</span></button>
+                    <button class="act-btn"><span class="material-icons mat-icon">delete</span></button>
+                  </td>
+                  <td id="table-data" style="font-weight: 600; padding-top: 15px;">0/1000</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <button type="button" class="add-shelf-btn">Add Shelf</button>
+
+
+
+
+
+
+
+
           </div>
           <button type="button" v-if="Sector_ID != 0" class="btn btn-primary" @click="updateSector()">Update</button>
           <h5 class="text-center m-2">OR</h5>
@@ -183,9 +219,16 @@ export default {
       this.selectedSector = sect;
       // $('#sect-disp-Modal').modal('show');
     },
+    updateProgressBar() {
+      const progressBar = document.querySelector('.progress-bar');
+      const value = progressBar.getAttribute('aria-valuenow');
+      const percent = (value / 100) * 100;
+      progressBar.style.width = `${percent}%`;
+    }
   },
   mounted: function () {
     this.refreshData();
+    this.updateProgressBar();
   }
 }
 </script>

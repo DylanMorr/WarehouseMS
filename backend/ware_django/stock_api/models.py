@@ -28,6 +28,7 @@ class Sector(models.Model):
 
 class Shelf(models.Model):
     Shelf_ID = models.AutoField(primary_key=True)
+    Shelf_Sector = models.CharField(max_length=100)
     Shelf_Num = models.IntegerField()
     Shelf_Capacity = models.IntegerField()
 
